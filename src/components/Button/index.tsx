@@ -13,6 +13,9 @@ const Base = styled.button<{
     text-decoration: none;
     color: white;
     cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
 
     &.disabled {
         cursor: auto;
@@ -27,5 +30,19 @@ export const ButtonPrimary = styled(Base)`
 
     &:hover {
         background-color: ${({theme}) => darken(0.05, theme.primary1)}
+    }
+
+    &:focus {
+        box-shadow: 0 0 0 1px ${({theme}) => theme.primary2};
+    }
+`
+
+export const ButtonSecondary = styled(Base)`
+    border: 1px solid ${({theme}) => theme.primary4};
+    color: ${({theme}) => theme.primaryText1};
+    background-color: transparent;
+
+    &:hover {
+        border: 1px solid ${({theme}) => theme.primary2};
     }
 `
