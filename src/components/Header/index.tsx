@@ -54,7 +54,7 @@ const StyledNavLink = styled(NavLink).attrs({
         color: ${({theme}) => theme.primaryText1};
     }
 
-    &:not(.${activeClassName}):hover|focus {
+    &:not(.${activeClassName}):hover &:not(.${activeClassName}):focus {
         color: ${({theme}) => theme.text1};
     }
 `;
