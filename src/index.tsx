@@ -6,15 +6,19 @@ import { ModalProvider } from './state/modal'
 import App from './pages/App';
 import reportWebVitals from './reportWebVitals';
 import getLibrary from './utils/getLibrary'
-import './index.css'
+import ThemeProvider, { FixedGlobalStyle, ThemedGlobalStyle } from './theme'
 
 ReactDOM.render(
     <React.StrictMode>
+        <FixedGlobalStyle />
         <Web3ReactProvider getLibrary={ getLibrary} >
             <ModalProvider>
-                <HashRouter>
-                    <App />
-                </HashRouter>
+                <ThemeProvider>
+                    <ThemedGlobalStyle />
+                    <HashRouter>
+                        <App />
+                    </HashRouter>
+                </ThemeProvider>
             </ModalProvider>
         </Web3ReactProvider>
     </React.StrictMode>,

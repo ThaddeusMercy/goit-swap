@@ -6,7 +6,7 @@ import '@reach/dialog/styles.css'
 const StyledDialogOverlay = styled(DialogOverlay)`
     &[data-reach-dialog-overlay] {
         z-index: 2;
-        background-color: rgba(0, 0, 0, 0.3);
+        background-color: ${({theme}) => theme.modalBg};
         overflow: hidden;
         display: flex;
         align-items: center;
@@ -22,7 +22,7 @@ const StyledDialogContent = styled(DialogContent).attrs({
     &[data-reach-dialog-content] {
         width: 50vw;
         height: 100px;
-        background-color: var(--color-background2);
+        background-color: ${({theme}) => theme.bg2};
         align-self: center;
     }
 `

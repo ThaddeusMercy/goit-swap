@@ -34,14 +34,14 @@ const StyledNavLink = styled(NavLink).attrs({
     font-family: 'Inter' sans-serif;
     text-decoration: none;
     font-size: 1rem;
-    color: var(--color-text);
+    color: ${({theme}) => theme.text2};
     font-weight: 600;
     margin: 0 10px;
     opacity: 0.7;
 
     &.${activeClassName} {
         opacity: 1;
-        color: var(--color-primary);
+        color: ${({theme}) => theme.primaryText1};
     }
 
     :hover {
