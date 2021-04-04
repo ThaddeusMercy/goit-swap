@@ -3,12 +3,12 @@ import { NavLink } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 import { darken, transparentize } from 'polished'
 import { ReactComponent as Logo } from '../../assets/minimal-logo.svg';
-import { RowFixed } from '../Row';
+import { RowCenter } from '../Row';
 import Web3Status from '../Web3Status'
 
 const StyledWeb3Status = styled(Web3Status)``
 
-const HeaderRow = styled(RowFixed)`
+const HeaderRow = styled(RowCenter)`
     width: 100%;
 
     & > *:last-child {
@@ -27,6 +27,7 @@ const HeaderWrapper = styled.div`
 `;
 
 const LogoLink = styled.a`
+    display: flex;
     align-self: center;
     margin-left: 20px;
     margin-right: 10px;
@@ -41,9 +42,9 @@ const activeClassName = 'ACTIVE'
 const StyledNavLink = styled(NavLink).attrs({
     activeClassName
 })`
+    letter-spacing: 0.2px;
     outline: none;
     align-items: left;
-    font-family: 'Inter' sans-serif;
     text-decoration: none;
     font-size: 1rem;
     color: ${({theme}) => theme.text2};

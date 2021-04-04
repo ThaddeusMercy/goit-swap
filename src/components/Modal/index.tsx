@@ -52,4 +52,4 @@ export default function Modal({
     );
 }
 
-export { default as ModalHeader } from './ModalHeader'
+export { ModalTitleHeader, ModalNavigationHeader } from './ModalHeader'

@@ -11,6 +11,8 @@ const Web3ButtonConnect = styled(ButtonSecondary)`
     height: 35px;
     padding: 0 35px;
     background-color: ${({theme}) => theme.primary4};
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
 
     :hover, :focus {
         border-color: ${({theme}) => opacify(0.3, theme.primary4)};

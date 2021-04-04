@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { transparentize, darken } from 'polished'
 import Row from '../Row'
-import { ReactComponent as CloseIcon } from '../../assets/close.svg'
+import { CloseButton, BackButton } from '../Button';
 
 const ModalHeaderWrapper = styled(Row)`
     width: auto;
@@ -10,48 +10,44 @@ const ModalHeaderWrapper = styled(Row)`
     margin: 20px 20px 30px 20px;
 `
 
-const CloseButtonWrapper = styled.button`
-    border: none;
-    outline: none;
-    width: 24px;
-    height: 24px;
-    background-color: ${({theme}) => transparentize(0.9, theme.white)};
-    border-radius: 50%;
-    padding: 0;
-    cursor: pointer;
-
-    &:hover > * {
-        opacity: 0.7;
-    }
-`
-
-const StyledCloseIcon = styled(CloseIcon)`
-    width: 12px;
-    height: 12px;
-    margin: 6px;
-`
-
 const ModalTitle = styled.h2`
     color: ${({theme}) => theme.white};
     margin: 0;
-    font-family: 'Inter';
+    font-family: 'Montserrat';
     font-weight: 600;
-    font-size: 20px
+    font-size: 20px;
 `
 
-function CloseButton({onDismiss}: {onDismiss: () => void}) {
+interface ModalTitleHeaderProps {
+    title: string,
+    onDismiss: () => void
+}
+
+export function ModalTitleHeader({
+    title,
+    onDismiss
+}: ModalTitleHeaderProps) {
     return (
-        <CloseButtonWrapper onClick={onDismiss} >
-            <StyledCloseIcon />
-        </CloseButtonWrapper>
+        <ModalHeaderWrapper>
+            <ModalTitle>{title}</ModalTitle>
+            <CloseButton onClick={onDismiss} />
+        </ModalHeaderWrapper>
     )
 }
 
-export default function ModalHeader({onDismiss}: {onDismiss: () => void}) {
+interface ModalNavigationHeaderProps {
+    onBack: () => void,
+    onDismiss: () => void
+}
+
+export function ModalNavigationHeader({
+    onBack,
+    onDismiss
+}: ModalNavigationHeaderProps) {
     return (
         <ModalHeaderWrapper>
-            <ModalTitle>Connect Wallet</ModalTitle>
-            <CloseButton onDismiss={onDismiss} />
+            <BackButton onClick={onBack} />
+            <CloseButton onClick={onDismiss} />
         </ModalHeaderWrapper>
     )
 }

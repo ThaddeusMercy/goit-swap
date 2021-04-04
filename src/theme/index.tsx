@@ -27,7 +27,9 @@ export function colors(darkMode: boolean): Colors {
         primaryText1: '#EE4647',
 
         text1: '#ffffff',
-        text2: '#D8CACB'
+        text2: '#D8CACB',
+
+        error: '#a61d23'
     }
 }
 
@@ -50,9 +52,7 @@ export default function ThemeProvider({children}: {children: React.ReactNode}) {
 
 export const FixedGlobalStyle = createGlobalStyle`
     html {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-          'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-          sans-serif;
+        font-family: 'Lato', sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
@@ -60,6 +60,10 @@ export const FixedGlobalStyle = createGlobalStyle`
     html, body {
         margin: 0;
         padding: 0;
+    }
+
+    * {
+
     }
 `
 
