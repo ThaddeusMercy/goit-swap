@@ -3,6 +3,7 @@ import { AbstractConnector } from '@web3-react/abstract-connector'
 import Row, { RowCenter } from '../Row'
 import { ReactComponent as LoaderIcon } from '../../assets/loader.svg'
 import { ButtonGray } from '../Button'
+import { SUPPORTED_WALLETS } from '../../constants'
 
 // Error
 const ErrorWrapper = styled(RowCenter)`
@@ -59,6 +60,29 @@ const StyledLoaderIcon = styled(LoaderIcon)`
     animation: ${spinningAnimation} 2s linear infinite;
 `
 
+// Connector
+const ConnectorWrapper = styled.div`
+    margin: -10px 0 30px 0;
+
+    & h2 {
+        text-align: center;
+        margin: 10px 0 0 0;
+    }
+`
+
+const ConnectorIconWrapper = styled.div`
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    height: 64px;
+    width: 64px;
+`
+
+const ConnectorIcon = styled.img`
+    width: 100%;
+    height: 100%;
+`
+
 interface PendingViewProps {
     pendingError: boolean,
     setPendingError: (error: boolean) => void,
@@ -75,6 +99,21 @@ export default function PendingView({
 
     return (
         <>
+            {Object.keys(SUPPORTED_WALLETS).map((key) => {
+                const walletOption = SUPPORTED_WALLETS[key]
+
+                console.log(walletOption)
+                if (walletOption.connector == pendingConnector) {
+                    return (
+                        <ConnectorWrapper>
+                            <ConnectorIconWrapper key={key} >
+                                <ConnectorIcon src={require('../../assets/icons/' + walletOption.iconName).default} alt={walletOption.iconName} />
+                            </ConnectorIconWrapper>
+                            <h2>{walletOption.name}</h2>
+                        </ConnectorWrapper>
+                    )
+                }
+            })}
             {pendingError ? (
                 <ErrorWrapper>
                     <ErrorMark />

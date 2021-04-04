@@ -75,4 +75,16 @@ export const ThemedGlobalStyle = createGlobalStyle`
             `radial-gradient(${transparentize(0.9, theme.primary1)} 30%, ${transparentize(1, theme.bg1)})`
         };
     }
+
+    h1 {
+        color: ${({theme}) => theme.primaryText1};
+    }
+
+    h2, h3, h4, h5, h6 {
+        color: ${({theme}) => theme.text1};
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
 `
