@@ -16,7 +16,7 @@ export const bscConnector = new BscConnector({
 })
 
 export const walletconnectConnector = new WalletConnectConnector({
-    rpc: {[chainId]: rpcUrl },
+    rpc: {[chainId]: rpcUrl},
     bridge: walletconnectBridgeUrl,
     qrcode: true,
     pollingInterval: 12000
