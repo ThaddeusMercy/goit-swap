@@ -55,13 +55,12 @@ const StyledNavLink = styled(NavLink).attrs({
         color: ${({theme}) => theme.primaryText1};
     }
 
-    &:not(.${activeClassName}):hover &:not(.${activeClassName}):focus {
-        color: ${({theme}) => theme.text1};
+    &:hover, &:focus {
+        opacity: 0.7;
     }
-`;
+`
 
-function Header() {
-
+export default function Header() {
     return (
         <HeaderWrapper>
             <HeaderRow>
@@ -75,5 +74,3 @@ function Header() {
         </HeaderWrapper>
     );
 }
-
-export default Header;
