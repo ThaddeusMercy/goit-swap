@@ -11,7 +11,7 @@ export const SUPPORTED_WALLETS = {
     METAMASK: {
         connector: injected,
         name: "Metamask",
-        iconName: "metmask.svg"
+        iconName: "metamask.svg"
     },
     WALLETCONNECT: {
         connector: walletconnectConnector,

@@ -21,9 +21,11 @@ const StyledDialogContent = styled(DialogContent).attrs({
 
     &[data-reach-dialog-content] {
         width: 50vw;
-        height: 100px;
+        max-width: 420px;
         background-color: ${({theme}) => theme.bg2};
         align-self: center;
+        border-radius: 20px;
+        padding: 0;
     }
 `
 
@@ -43,9 +45,11 @@ export default function Modal({
         <>
             <StyledDialogOverlay isOpen={isOpen} onDismiss={onDismiss} >
                 <StyledDialogContent aria-label="dialog content" >
-                    { children}
+                    {children}
                 </StyledDialogContent>
             </StyledDialogOverlay>
         </>
     );
 }
+
+export { default as ModalHeader } from './ModalHeader'
